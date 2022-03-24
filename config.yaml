@@ -136,16 +136,24 @@ params:
   disable_projects: false
   projects:
     - name: "Waste Detector"
-      img: /images/project.jpg
+      img: /img/waste_detector.png
       githublink: "https://github.com/hectorLop/Waste-Detector"
       featuredlink: "https://huggingface.co/spaces/hlopez/Waste-Detector"
       description: "A deep learning-based system to detect waste in images and classify it according to which rubbish bin to be thrown. It is deployed on Hugginface Spaces."
+    - name: "Weight&Biases Model Versioning"
+      img: /img/weight_and_biases.png
+      githublink: "https://github.com/hectorLop/Wandb-MV"
+      description: "Model versioning using Weight&Biases"
     - name: "Soccer matches predictor"
-      img: /images/project.jpg
+      img: /img/soccer_prediction.jpg
       githublink: "https://github.com/hectorLop/SoccerPredictor"
       featuredlink: "https://github.com/hectorLop/SoccerPredictor"
       description: "This project serves a ML model to predict the outcome from the spanish soccer league. It includes the set-up of all the infrastructure to deploy and train new models."
-      
+    - name: "CO2 emissions forecast"
+      img: /img/co2_emissions_forecast.jpg
+      githublink: "https://github.com/hectorLop/CO2_emissions_forecast"
+      featuredlink: "https://github.com/hectorLop/CO2_emissions_forecast"
+      description: "System to generate forecast of the CO2 emissions related to electricity generation in Spain."
 
   # Achievements
   disable_achievements: yes
@@ -166,13 +174,13 @@ params:
       img: /images/achiv.jpg
 
   # Contact
-  disable_contact: false
+  disable_contact: true
   contact_content: My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
   email: "lopez.almazan.hector@gmail.com"
 
   # Footer
   socialiconfooter: true
-  recentposts: true
+  recentposts: False
 
   # Blog
   showdescription: false
