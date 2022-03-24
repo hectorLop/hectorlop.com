@@ -139,7 +139,7 @@ params:
       img: /img/waste_detector.png
       githublink: "https://github.com/hectorLop/Waste-Detector"
       featuredlink: "https://huggingface.co/spaces/hlopez/Waste-Detector"
-      description: "A deep learning-based system to detect waste in images and classify it according to which rubbish bin to be thrown. It is deployed on Hugginface Spaces."
+      description: "A deep learning-based system to detect waste in images and classify it according to which rubbish bin it must be thrown to be recycled."
     - name: "Weight&Biases Model Versioning"
       img: /img/weight_and_biases.png
       githublink: "https://github.com/hectorLop/Wandb-MV"
@@ -148,12 +148,12 @@ params:
       img: /img/soccer_prediction.jpg
       githublink: "https://github.com/hectorLop/SoccerPredictor"
       featuredlink: "https://github.com/hectorLop/SoccerPredictor"
-      description: "This project serves a ML model to predict the outcome from the spanish soccer league. It includes the set-up of all the infrastructure to deploy and train new models."
+      description: "This project serves a ML model to predict the outcome from the Spanish soccer league. It includes the set-up of all the infrastructure to deploy and train new models."
     - name: "CO2 emissions forecast"
       img: /img/co2_emissions_forecast.jpg
       githublink: "https://github.com/hectorLop/CO2_emissions_forecast"
       featuredlink: "https://github.com/hectorLop/CO2_emissions_forecast"
-      description: "System to generate forecast of the CO2 emissions related to electricity generation in Spain."
+      description: "System to forecast the CO2 emissions related to electricity generation in Spain."
 
   # Achievements
   disable_achievements: yes
