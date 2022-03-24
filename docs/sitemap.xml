@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://hectorlop.com/project/example/</loc>
+    <lastmod>2021-05-04T11:30:13+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/</loc>
+    <lastmod>2021-05-04T11:30:13+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/project/</loc>
+    <lastmod>2021-05-04T11:30:13+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/blog/</loc>
+    <lastmod>2021-04-03T23:29:21+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/blog/markdown-syntax/</loc>
+    <lastmod>2021-04-03T23:29:21+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/tags/markdown-syntax/</loc>
+    <lastmod>2021-04-03T23:29:21+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/tags/</loc>
+    <lastmod>2021-04-03T23:29:21+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/blog/emoji-support/</loc>
+    <lastmod>2021-04-03T22:53:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/tags/emoji-support/</loc>
+    <lastmod>2021-04-03T22:53:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/blog/placeholder-text/</loc>
+    <lastmod>2021-04-03T22:41:10+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/tags/placeholder-text/</loc>
+    <lastmod>2021-04-03T22:41:10+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/blog/rich-content/</loc>
+    <lastmod>2021-04-03T19:53:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/tags/rich-content/</loc>
+    <lastmod>2021-04-03T19:53:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hectorlop.com/categories/</loc>
+  </url>
+  
+</urlset>
