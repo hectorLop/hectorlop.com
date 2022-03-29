@@ -9,26 +9,20 @@ draft: true
 Until not long ago, I have always trained every Deep Learning model in a remote
 server with ssh and jupyter lab access. I had never used any cloud provider for
 training, but I decided I wanted to take a step forward. This decision led me
-to use AWS SageMaker in one of my side projects.
+to use AWS SageMaker in one of my side projects. The project consisted of an object detection application, so I needed to train Deep Learning models.
 
-Looking into the SageMaker possibilities, I discovered that it allowed to
-use custom Docker containers to create training jobs. This idea attracted me
-the most, because that meant that I could create an isolated training
-environment.
+Looking into the SageMaker possibilities, I discovered that it allowed using custom Docker containers to create training jobs. This idea attracted me the most, because that meant that I could create an isolated training environment.
 
-Initially I struggled a lot reading the documentation and several blog posts
-until I understood how to create this custom Docker image to be executed
-in SageMaker. In this blog bost I will walk you through how to create a 
-SageMaker training job that uses a custom Docker image!.
+Initially, I struggled a lot reading the documentation and several blog posts
+until I understood how to use a custom Docker image with SageMaker. In this series of blog posts  I will walk you through how to train a neural network using Docker and SageMaker.
 
-In this first blog post I'm going to address the following tasks:
-- Understand the docker SageMaker structure
-- Creation of a Docker file
-- Push the docker file to an ECR repository.
+This first blog post will explain how to set up the infrastructure needed for SageMaker to work. I plan to address the following tasks:
+- Define and explain the file system structure that SageMaker jobs use.
+- Docker file definition.
+- Use AWS ECR to store the docker image.
 
 ## AWS SageMaker structure
-Let's take a look at the structure that will have our training job before
-creating any training script nor Docker image.
+Let's look at the file system structure that SageMaker jobs use. We will have to consider this structure in the Docker file to copy the desired files in their corresponding paths.
 
 SageMaker invokes the training code by running a version of the following
 command:
@@ -73,7 +67,7 @@ The following snippet shows a docker file example. In this case, due that we are
 Besides, the project is an object detection application that was built using the Icevision framework, so we needed to install all the dependencies.
 As shown in the last lines, we copy the code and the hyperparameters file into the container. Lastly, we define an entrypoint that executes the training script.
 
-```
+```dockerfile
 FROM nvidia/cuda:11.0-runtime-ubuntu20.04
 
 # Install dependencies
@@ -106,7 +100,7 @@ The last step to fill all the requirements previous to launch a SageMaker experi
 The following code represents the script to build and push an image to ECR. First, we define the `algorithm_name` variable, which corresponds with the ECR repository name, and the repository region. Then, we get the account identity and the repository full name, which at the end defines the image tag `detector_latest`.
 
 Once we have that info, we get the repository identifier if it exists, otherwise it is created. Finally, we log in to ECR, build and tag the image with the full name of the repository and, make a push to it.
-```
+```bash
 algorithm_name=waste_training
 region=eu-west-1
 
