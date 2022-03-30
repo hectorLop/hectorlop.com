@@ -22,7 +22,7 @@ This first blog post will explain how to set up the infrastructure needed for Sa
 - Use AWS ECR to store the docker image.
 
 ## AWS SageMaker structure
-Let's look at the file system structure that SageMaker jobs use. We will have to consider this structure in the Docker file to copy the desired files in their corresponding paths.
+Let's look at the file system structure used by SageMaker. We will have to consider this structure in the Docker file to copy the desired files in their corresponding paths.
 
 SageMaker invokes the training code by running a version of the following
 command:
@@ -31,11 +31,9 @@ command:
 docker run <image> train
 ```
 
-This means that the Docker image should have an executable file in it that is
-called `train`. That will be our training script. Besides, the training
-data must be stored into a S3 bucket, so SageMaker can downloads it.
+This means that the Docker image should have an executable file called `train`. That will be our training script. Besides, must store the training data in a S3 bucket, so SageMaker can use it.
 
-SageMaker uses the following project structure:
+SageMaker uses the following file system structure:
 ```
 /opt/ml
 ├── code
@@ -55,12 +53,11 @@ SageMaker uses the following project structure:
     └── failure
 ```
 
-The training script and its utility files must be located into the `/opt/ml/code/`
-directory. In the other hand, the `input` directory contains both the 
-hyperparamenters in a JSON file under the `input/config/` directory and the
-training data under the `input/data/<channel name>/` directory. The channel
-name could be whatever we want, in out case we will use `training`.
-The `model` directory contains any training output or model checkpoint.
+- The `code` directory contains the training script and the utility files. 
+- The `input` directory contains the inputs for our training script.
+  - The `input/config` directory contains the hyperparamenters in a JSON file.
+  - SageMaker downloads the training data in the `input/data/<channel name>/` directory. The channel name could be whatever we want. We called it `training`.
+- The `model` directory contains any model checkpoint.
 
 ## Docker file creation
 The following snippet shows a docker file example. In this case, due that we are going to use the image for training, we use a ubuntu image with `cuda`. Thus, we could use SageMaker GPU instances.
