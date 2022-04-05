@@ -60,9 +60,11 @@ SageMaker uses the following file system structure:
 - The `model` directory contains any model checkpoint.
 
 ## Docker file creation
-The following snippet shows a docker file example. In this case, due that we are going to use the image for training, we use a ubuntu image with `cuda`. Thus, we could use SageMaker GPU instances.
-Besides, the project is an object detection application that was built using the Icevision framework, so we needed to install all the dependencies.
-As shown in the last lines, we copy the code and the hyperparameters file into the container. Lastly, we define an entrypoint that executes the training script.
+
+Now, we will show the dockerfile I used to make the experimentation.
+
+The following snippet shows a docker file example. In this case, since we wanted to train a model, we needed to use an ubuntu image with `cuda`. Thus, we could use SageMaker GPU instances.
+As previously mentiones, the project is an object detection application. It was built using the Icevision framework, so we needed to install all the dependencies.
 
 ```dockerfile
 FROM nvidia/cuda:11.0-runtime-ubuntu20.04
@@ -92,11 +94,18 @@ WORKDIR /opt/ml/code
 ENTRYPOINT [ "python3", "/opt/ml/code/train.py" ]
 ```
 
-## Building and pushing the training image to AWS ECR.
-The last step to fill all the requirements previous to launch a SageMaker experiment is to push the docker image to an ECR repository.
-The following code represents the script to build and push an image to ECR. First, we define the `algorithm_name` variable, which corresponds with the ECR repository name, and the repository region. Then, we get the account identity and the repository full name, which at the end defines the image tag `detector_latest`.
+- `FROM nvidia/cuda:11.0-runtime-ubuntu20.04` defines a ubuntu image with `cuda:11.0`.
+- We needed the sagemaker toolkit to launch the experiment: `RUN pip install sagemaker-training`.
+- `ENTRYPOINT [ "python3", "/opt/ml/code/train.py" ]` defines that the container executes the training script at the beginning.
 
-Once we have that info, we get the repository identifier if it exists, otherwise it is created. Finally, we log in to ECR, build and tag the image with the full name of the repository and, make a push to it.
+## Push the image to AWS ECR.
+
+The next step is pushing the image to an ECR repository. I have created a bash script to automatize this process. 
+
+- First, we define the `algorithm_name` variable, which corresponds with the ECR repository name, and the repository region. Then, we get the account identity and the repository full name. Besides, we need to define an image tag, in this case it is `detector_latest`.
+- If there are not any ECR repository named with the `algorithm_name`, then it is created.
+- Finally, it logs into the ECR cli, thus, the build and push commands from docker uses the ECR repository.
+
 ```bash
 algorithm_name=waste_training
 region=eu-west-1
@@ -118,3 +127,9 @@ docker build -t ${algorithm_name} .
 docker tag ${algorithm_name} ${fullname}
 docker push ${fullname}
 ```
+
+### Conclusion
+
+At this point we have successfully prepared all the requirements needed to launch a SageMaker training job using a custom Docker image. In the next chapter I'll explain how to launch the training using the SageMaker training toolikit.
+
+I hope you have been useful, see you in the next chapter!
