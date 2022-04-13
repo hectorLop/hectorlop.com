@@ -138,7 +138,7 @@ params:
     - name: "Waste Detector"
       img: /img/waste_detector.png
       githublink: "https://github.com/hectorLop/Waste-Detector"
-      featuredlink: "54.155.101.152:8501"
+      featuredlink: "http://ec2-54-155-101-152.eu-west-1.compute.amazonaws.com:8501"
       description: "A deep learning-based system to detect waste in images and classify it according to which rubbish bin it must be thrown to be recycled."
     - name: "Weight&Biases Model Versioning"
       img: /img/weight_and_biases.png
