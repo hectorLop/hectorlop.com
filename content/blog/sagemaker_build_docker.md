@@ -1,10 +1,8 @@
 ---
-title: "Sagemaker_build_docker"
+title: "Training on SageMaker using Docker and Icevision"
 date: 2022-03-28T19:19:12+02:00
 draft: false
 ---
-# Training on SageMaker using Docker and Icevision
-
 ## Introduction
 Until not long ago, I have always trained every Deep Learning model in a remote
 server with ssh and jupyter lab access. I had never used any cloud provider for
