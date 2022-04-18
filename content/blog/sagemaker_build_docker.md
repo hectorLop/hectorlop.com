@@ -1,7 +1,7 @@
 ---
 title: "Sagemaker_build_docker"
 date: 2022-03-28T19:19:12+02:00
-draft: true
+draft: false
 ---
 # Training on SageMaker using Docker and Icevision
 
@@ -59,7 +59,7 @@ SageMaker uses the following file system structure:
   - SageMaker downloads the training data in the `input/data/<channel name>/` directory. The channel name could be whatever we want. We called it `training`.
 - The `model` directory contains any model checkpoint.
 
-## Docker file creation
+## Dockerfile creation
 
 Now, we will show the dockerfile I used to make the experimentation.
 
