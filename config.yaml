@@ -140,6 +140,11 @@ params:
       githublink: "https://github.com/hectorLop/Waste-Detector"
       featuredlink: "http://ec2-54-155-101-152.eu-west-1.compute.amazonaws.com:8501"
       description: "A deep learning-based system to detect waste in images and classify it according to which rubbish bin it must be thrown to be recycled."
+    - name: "Twitter Positivity Analyzer"
+      img: /img/twitter.jpg
+      githublink: "https://github.com/hectorLop/Twitter_Positivity_Analyzer"
+      featuredlink: "http://ec2-54-217-182-196.eu-west-1.compute.amazonaws.com:8500"
+      description: "A deep learning-based system to classify tweets according to its positivity"
     - name: "Weight&Biases Model Versioning"
       img: /img/weight_and_biases.png
       githublink: "https://github.com/hectorLop/Wandb-MV"
